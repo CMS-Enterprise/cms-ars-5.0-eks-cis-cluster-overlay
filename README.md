@@ -132,7 +132,7 @@ cinc-auditor archive cms-ars-5.0-eks-cis-cluster-overlay
 BASELINE=<your_system_categorization> cinc-auditor exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
-For every successive run, follow these steps to always have the latest version of this baseline and dependent profiles:
+For every successive run, follow these steps to always have the latest version of this overlay and dependent profiles:
 
 ```
 cd cms-ars-5.0-eks-cis-cluster-overlay
