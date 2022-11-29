@@ -125,18 +125,18 @@ If your runner is not always expected to have direct access to GitHub, use the f
 ```
 mkdir profiles
 cd profiles
-git clone https://github.com/cmsgov/cms-ars-3.1-moderate-eks-cis-cluster-overlay.git
-inspec archive cms-ars-3.1-moderate-eks-cis-cluster-overlay
+git clone https://github.com/cms-enterprise/cms-ars-5.0-eks-cis-cluster-overlay.git
+inspec archive cms-ars-5.0-eks-cis-cluster-overlay
 sudo inspec exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
 For every successive run, follow these steps to always have the latest version of this baseline and dependent profiles:
 
 ```
-cd cms-ars-3.1-moderate-eks-cis-cluster-overlay
+cd cms-ars-5.0-eks-cis-cluster-overlay
 git pull
 cd ..
-inspec archive cms-ars-3.1-moderate-eks-cis-cluster-overlay --overwrite
+inspec archive cms-ars-5.0-eks-cis-cluster-overlay --overwrite
 sudo inspec exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
@@ -148,9 +148,9 @@ Executing the profile by downloading it to the runner:
 git clone https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-cluster-overlay.git
 cd cms-ars-5.0-eks-cis-cluster-overlay
 # How to run (linux)
-BASELINE=<your_system_categorization> cinc-auditor exec . -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:node1results.json
+BASELINE=<your_system_categorization> cinc-auditor exec . -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ...
-BASELINE=<your_system_categorization> cinc-auditor exec . -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:nodeNresults.json
+BASELINE=<your_system_categorization> cinc-auditor exec . -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
 Executing the profile by executing it from this GitHub repository:
