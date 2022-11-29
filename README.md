@@ -2,9 +2,9 @@
 
 InSpec profile to validate the secure configuration of AWS EKS, against [CIS](https://www.cisecurity.org/cis-benchmarks/)'s CIS Amazon Elastic Kubernetes Service (EKS) Benchmark version 1.0.1 (Cluster requirements) tailored for CMS ARS 5.0.
 
-The baseline includes tests that must be executed against the Kubernetes API and tests that must be executed against the underlying nodes over SSH. This profile handles only the cluster tests, and is intended to be run alongside the [CMS ARS 5.0 EKS CIS Node Overlay profile](https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-node-overlay).
+The baseline includes tests that must be executed against the Kubernetes API and tests that must be executed against the underlying nodes over SSH. This profile handles only the cluster tests, and is intended to be run alongside the [CMS ARS 5.0 EKS CIS Cluster Overlay profile](https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-cluster-overlay).
 
-	## Getting Started  
+## Getting Started  
 ### InSpec (CINC-auditor) setup
 For maximum flexibility/accessibility, we’re moving to “cinc-auditor”, the open-source packaged binary version of Chef InSpec, compiled by the CINC (CINC Is Not Chef) project in coordination with Chef using Chef’s always-open-source InSpec source code. For more information: https://cinc.sh/
 
