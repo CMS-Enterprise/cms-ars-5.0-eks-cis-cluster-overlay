@@ -113,7 +113,8 @@ BASELINE=<your_system_categorization> cinc-auditor exec . --input-file <path_to_
 Executing the profile by executing it from this GitHub repository:
 
 ```
-inspec exec https://github.com/cms-enterprise/cms-ars-5.0-eks-cis-cluster-overlay/archive/main.tar.gz --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
+# How to run (linux)
+BASELINE=<your_system_categorization> cinc-auditor exec https://github.com/cms-enterprise/cms-ars-5.0-eks-cis-cluster-overlay/archive/main.tar.gz --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
 ## Running This Baseline from a local Archive copy
@@ -126,8 +127,9 @@ If your runner is not always expected to have direct access to GitHub, use the f
 mkdir profiles
 cd profiles
 git clone https://github.com/cms-enterprise/cms-ars-5.0-eks-cis-cluster-overlay.git
-inspec archive cms-ars-5.0-eks-cis-cluster-overlay
-sudo inspec exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
+cinc-auditor archive cms-ars-5.0-eks-cis-cluster-overlay
+# How to run (linux)
+BASELINE=<your_system_categorization> cinc-auditor exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
 For every successive run, follow these steps to always have the latest version of this baseline and dependent profiles:
@@ -136,8 +138,9 @@ For every successive run, follow these steps to always have the latest version o
 cd cms-ars-5.0-eks-cis-cluster-overlay
 git pull
 cd ..
-inspec archive cms-ars-5.0-eks-cis-cluster-overlay --overwrite
-sudo inspec exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
+cinc-auditor archive cms-ars-5.0-eks-cis-cluster-overlay --overwrite
+# How to run (linux)
+BASELINE=<your_system_categorization> cinc-auditor exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
 ## Using Heimdall for Viewing the JSON Results
