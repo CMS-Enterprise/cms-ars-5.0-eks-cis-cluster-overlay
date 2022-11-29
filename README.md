@@ -140,52 +140,6 @@ inspec archive cms-ars-5.0-eks-cis-cluster-overlay --overwrite
 sudo inspec exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
 ```
 
-## Running the Profile
-
-Executing the profile by downloading it to the runner:
-
-```	
-git clone https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-cluster-overlay.git
-cd cms-ars-5.0-eks-cis-cluster-overlay
-# How to run (linux)
-BASELINE=<your_system_categorization> cinc-auditor exec . -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
-...
-BASELINE=<your_system_categorization> cinc-auditor exec . -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json
-```
-
-Executing the profile by executing it from this GitHub repository:
-
-```
-# How to run (linux)
-BASELINE=<your_system_categorization> cinc-auditor exec https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-cluster-overlay/archive/main.tar.gz -t ssh://ec2-user@<node 1 IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster1results.json
-...
-BASELINE=<your_system_categorization> cinc-auditor exec https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-cluster-overlay/archive/main.tar.gz -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:clusterNresults.json
-```
-
-## Running This Baseline from a local Archive copy
-
-If your runner is not always expected to have direct access to GitHub, use the following steps to create an archive bundle of this profile and all of its dependent tests:
-
-(Git is required to clone the InSpec profile using the instructions below. Git can be downloaded from the [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) site.)	
-
-```
-mkdir profiles
-cd profiles
-git clone https://github.com/CMS-Enterprise/cms-ars-5.0-eks-cis-cluster-overlay.git
-cinc-auditor archive cms-ars-5.0-eks-cis-cluster-overlay
-sudo cinc-auditor exec <archive name> -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:clusterNresults.json
-```
-
-For every successive run, follow these steps to always have the latest version of this baseline and dependent profiles:		For every successive run, follow these steps to always have the latest version of this baseline and dependent profiles:
-
-```
-cd cms-ars-5.0-eks-cis-cluster-overlay
-git pull
-cd ...
-cinc-auditor archive cms-ars-5.0-eks-cis-cluster-overlay --overwrite
-sudo inspec exec <archive name> --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:cluster-results.json		sudo cinc-auditor exec <archive name> -t ssh://ec2-user@<node N IP address> -i private_key.pem --input-file <path_to_your_input_file/name_of_your_input_file.yml> --reporter cli json:clusterNresults.json
-```
-
 ## Using Heimdall for Viewing the JSON Results
 
 ![Heimdall Lite 2.0 Demo GIF](https://github.com/mitre/heimdall2/blob/master/apps/frontend/public/heimdall-lite-2.0-demo-5fps.gif)
